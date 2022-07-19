@@ -1,6 +1,7 @@
 
 % I have some problems with the vertical retrace. 
-Screen('Preference', 'SkipSyncTests', 1);
+% Screen('Preference', 'SkipSyncTests', 1);
+Screen('Preference','SyncTestSettings' , 0.01, [], [], []); % Increasing the amount of tolerable noisiness in the synch test from 1 to 10ms, because Windows often has more noisy synch timing.
 
 % Setup PTB with some default values
 PsychDefaultSetup(2);
@@ -70,7 +71,7 @@ Screen('TextFont', wd, 'Arial');
 Screen('TextSize', wd, 20);
 % Position of the feedback text
 
-feedbacktextRect1 = Screen('TextBounds', wd, '¡Muy lento! Por favor, responde más rápido');
+feedbacktextRect1 = Screen('TextBounds', wd, 'Zu langsam! Bitte schneller antworten');
 xfeedback1 = (screenXpixels / 2) - (feedbacktextRect1(3) / 2);
 yfeedback1 = (screenYpixels / 2) - (feedbacktextRect1(4) / 2);
 
