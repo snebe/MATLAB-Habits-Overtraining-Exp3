@@ -71,10 +71,10 @@ CueRect = [xPos, yPos, imageSizeX, imageSizeY];
  dstRectFull(:, 1) = CenterRectOnPointd(fullRect, screenXpixels / 2, yPos);
  
  
-PuaghText = Screen('TextBounds', wd, '¡Puagh! A este Alien no le gusto esa galleta');
+PuaghText = Screen('TextBounds', wd, 'Bäh! Dieses Alien mag diesen Keks nicht!');
 xPuaghText = (screenXpixels / 2) - (PuaghText(3) / 2);
 yPuaghText = (screenYpixels / 1.7) - (PuaghText(4) / 2); 
 
-UmmmText = Screen('TextBounds', wd, 'Ummm! A este Alien le encantó esa galleta');
+UmmmText = Screen('TextBounds', wd, 'Mmh! Dieses Alien liebt diesen Keks!');
 xUmmmText = (screenXpixels / 2) - (UmmmText(3) / 2);
 yUmmmText = (screenYpixels / 1.7) - (UmmmText(4) / 2); 

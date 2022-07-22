@@ -13,7 +13,7 @@ currentfolder=pwd;
 % (time pressure) and then the session)
 
         DATA.sub = input('Geben Sie die Probandennummer ein ---> ');
-%         DATA.group = input('¿Overtr (No=1/Sí=2)? ---> ');       
+        DATA.group = input('¿Overtr (No=1/Sí=2)? ---> ');       
         DATA.ses = input('Geben Sie die Nummer der Session ein (1/2/3)  ---> ');
      Session = DATA.ses;
      if Session == 1
@@ -47,7 +47,7 @@ distances
 
 
 % Define the trial-by-trial matrix
-trialsxblock = 48; %%4 cues x 12 trials (I am not including free election trials here)
+trialsxblock = 48; %4 cues x 12 trials (I am not including free election trials here)
 normalBlocks = 9;
 PreTrainingBlocks = 0;
 numBlocks = normalBlocks + PreTrainingBlocks;  

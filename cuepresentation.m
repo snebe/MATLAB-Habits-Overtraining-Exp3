@@ -6,7 +6,7 @@ dotSizePix = 20;
 
 if CurrentStim == 5
     centerStim = arrowstex;
-    DrawFormattedText(wd, 'Los aliens están distraidos...', 'center', resultText1, white);
+    DrawFormattedText(wd, 'Die Aliens sind abgelenkt ...', 'center', resultText1, white);
     Screen('Flip', wd);
     WaitSecs (2);
     DrawFormattedText(wd, '3', 'center', resultText1, white);

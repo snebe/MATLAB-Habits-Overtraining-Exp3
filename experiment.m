@@ -61,51 +61,51 @@ while exitExp == false
             end            
         end
         %SPACESHIPS SCREEN at the beginning of each block. It informs about what type of block is the next one:
-        DrawFormattedText(wd, ['Ahora veamos el valor de los diamantes para los próximos ensayos'], 'center', resultText1, white);
+        DrawFormattedText(wd, ['Schauen wir uns nun den Wert von Diamanten für die kommenden Durchgänge an.'], 'center', resultText1, white);
         Screen('Flip', wd);
         WaitSecs (2);
         
         if blockType == 1
             if counterBalancing(subjectCon,2) == 1
-                DrawFormattedText(wd, ['¡El mercado ha cambiado! Ahora los diamantes AZULES valen 0 puntos'], 'center', resultText1, white);
-                DrawFormattedText(wd, ['Intenta NO ganar diamantes AZULES en los siguientes ensayos. '], 'center', resultText2, white);
-                DrawFormattedText(wd, ['El resto de diamantes han recuperado su valor. '], 'center', resultText3, white);
-                DrawFormattedText(wd, ['Además hay interferencias: Verás "??" en lugar del valor de los diamantes. '], 'center', resultText4, white);
+                DrawFormattedText(wd, ['Der Markt hat sich verändert! BLAUE Diamanten sind jetzt 0 Punkte wert.'], 'center', resultText1, white);
+                DrawFormattedText(wd, ['Versuchen Sie, bei den folgenden Versuchen KEINE BLAUEN Diamanten zu gewinnen. '], 'center', resultText2, white);
+                DrawFormattedText(wd, ['Die übrigen Diamanten haben ihren Wert wiedererlangt. '], 'center', resultText3, white);
+                DrawFormattedText(wd, ['Es gibt auch Störungen: Sie sehen "???" anstelle des Wertes der Diamanten. '], 'center', resultText4, white);
             elseif counterBalancing(subjectCon,2) == 2
-                DrawFormattedText(wd, ['¡El mercado ha cambiado! Ahora los diamantes ROSAS valen 0 puntos'], 'center', resultText1, white);
-                DrawFormattedText(wd, ['Intenta NO ganar diamantes ROSAS en los siguientes ensayos' ], 'center', resultText2, white);
-                DrawFormattedText(wd, ['El resto de diamantes han recuperado su valor. '], 'center', resultText3, white);
-                DrawFormattedText(wd, ['Además hay interferencias: Verás "??" en lugar del valor de los diamantes. '], 'center', resultText4, white);
+                DrawFormattedText(wd, ['Der Markt hat sich verändert! ROTE Diamanten sind jetzt 0 Punkte wert.'], 'center', resultText1, white);
+                DrawFormattedText(wd, ['Versuchen Sie, bei den folgenden Versuchen KEINE ROTEN Diamanten zu gewinnen.' ], 'center', resultText2, white);
+                DrawFormattedText(wd, ['Die übrigen Diamanten haben ihren Wert wiedererlangt. '], 'center', resultText3, white);
+                DrawFormattedText(wd, ['Es gibt auch Störungen: Sie sehen "???" anstelle des Wertes der Diamanten. '], 'center', resultText4, white);
             elseif counterBalancing(subjectCon,2) == 3
-                DrawFormattedText(wd, ['¡El mercado ha cambiado! Ahora los diamantes AMARILLOS valen 0 puntos'], 'center', resultText1, white);
-                DrawFormattedText(wd, ['Intenta NO ganar diamantes AMARILLOS en los siguientes ensayos' ], 'center', resultText2, white);
-                DrawFormattedText(wd, ['El resto de diamantes han recuperado su valor. '], 'center', resultText3, white);
-                DrawFormattedText(wd, ['Además hay interferencias: Verás "??" en lugar del valor de los diamantes. '], 'center', resultText4, white);
+                DrawFormattedText(wd, ['Der Markt hat sich verändert! GELBE Diamanten sind jetzt 0 Punkte wert.'], 'center', resultText1, white);
+                DrawFormattedText(wd, ['Versuchen Sie, bei den folgenden Versuchen KEINE GELBEN Diamanten zu gewinnen.' ], 'center', resultText2, white);
+                DrawFormattedText(wd, ['Die übrigen Diamanten haben ihren Wert wiedererlangt. '], 'center', resultText3, white);
+                DrawFormattedText(wd, ['Es gibt auch Störungen: Sie sehen "???" anstelle des Wertes der Diamanten. '], 'center', resultText4, white);
             end
         elseif blockType == 2
             if counterBalancing(subjectCon,2) == 1
-                DrawFormattedText(wd, ['¡El mercado ha cambiado! Ahora los diamantes AMARILLOS valen 0 puntos'], 'center', resultText1, white);
-                DrawFormattedText(wd, ['Intenta NO ganar diamantes AMARILLOS en los siguientes ensayos' ], 'center', resultText2, white);
-                DrawFormattedText(wd, ['El resto de diamantes han recuperado su valor. '], 'center', resultText3, white);
-                DrawFormattedText(wd, ['Además hay interferencias: Verás "??" en lugar del valor de los diamantes. '], 'center', resultText4, white);
+                DrawFormattedText(wd, ['Der Markt hat sich verändert! GELBE Diamanten sind jetzt 0 Punkte wert.'], 'center', resultText1, white);
+                DrawFormattedText(wd, ['Versuchen Sie, bei den folgenden Versuchen KEINE GELBEN Diamanten zu gewinnen.' ], 'center', resultText2, white);
+                DrawFormattedText(wd, ['Die übrigen Diamanten haben ihren Wert wiedererlangt. '], 'center', resultText3, white);
+                DrawFormattedText(wd, ['Es gibt auch Störungen: Sie sehen "???" anstelle des Wertes der Diamanten. '], 'center', resultText4, white);
             elseif counterBalancing(subjectCon,2) == 2
-                DrawFormattedText(wd, ['¡El mercado ha cambiado! Ahora los diamantes AZULES valen 0 puntos'], 'center', resultText1, white);
-                DrawFormattedText(wd, ['Intenta NO ganar diamantes AZULES en los siguientes ensayos. '], 'center', resultText2, white);
-                DrawFormattedText(wd, ['El resto de diamantes han recuperado su valor. '], 'center', resultText3, white);
-                DrawFormattedText(wd, ['Además hay interferencias: Verás "??" en lugar del valor de los diamantes. '], 'center', resultText4, white);
+                DrawFormattedText(wd, ['Der Markt hat sich verändert! BLAUE Diamanten sind jetzt 0 Punkte wert.'], 'center', resultText1, white);
+                DrawFormattedText(wd, ['Versuchen Sie, bei den folgenden Versuchen KEINE BLAUEN Diamanten zu gewinnen.'], 'center', resultText2, white);
+                DrawFormattedText(wd, ['Die übrigen Diamanten haben ihren Wert wiedererlangt. '], 'center', resultText3, white);
+                DrawFormattedText(wd, ['Es gibt auch Störungen: Sie sehen "???" anstelle des Wertes der Diamanten. '], 'center', resultText4, white);
             elseif counterBalancing(subjectCon,2) == 3
-                DrawFormattedText(wd, ['¡El mercado ha cambiado! Ahora los diamantes ROSAS valen 0 puntos'], 'center', resultText1, white);
-                DrawFormattedText(wd, ['Intenta NO ganar diamantes ROSAS en los siguientes ensayos' ], 'center', resultText2, white);
-                DrawFormattedText(wd, ['El resto de diamantes han recuperado su valor. '], 'center', resultText3, white);
-                DrawFormattedText(wd, ['Además hay interferencias: Verás "??" en lugar del valor de los diamantes. '], 'center', resultText4, white);
+                DrawFormattedText(wd, ['Der Markt hat sich verändert! ROTE Diamanten sind jetzt 0 Punkte wert.'], 'center', resultText1, white);
+                DrawFormattedText(wd, ['Versuchen Sie, bei den folgenden Versuchen KEINE ROTEN Diamanten zu gewinnen.' ], 'center', resultText2, white);
+                DrawFormattedText(wd, ['Die übrigen Diamanten haben ihren Wert wiedererlangt. '], 'center', resultText3, white);
+                DrawFormattedText(wd, ['Es gibt auch Störungen: Sie sehen "???" anstelle des Wertes der Diamanten. '], 'center', resultText4, white);
             end
         elseif blockType == 3
-            DrawFormattedText(wd, ['¡El mercado está normalizado!'], 'center', resultText1, white);
-            DrawFormattedText(wd, ['Los diamantes AZUL, AMARILLO y ROSA tienen su valor normal'], 'center', resultText2, white);
-            DrawFormattedText(wd, [' Además no hay interferencias: Verás el valor de cada diamante conseguido. '], 'center', resultText4, white);
+            DrawFormattedText(wd, ['Der Markt ist normalisiert!'], 'center', resultText1, white);
+            DrawFormattedText(wd, ['BLAUE, GELBE und ROTE Diamanten haben wieder ihren normalen Wert.'], 'center', resultText2, white);
+            DrawFormattedText(wd, ['Und es gibt keine Störungen: Sie werden den Wert jedes verdienten Diamanten sehen.  '], 'center', resultText4, white);
         end
         Screen('TextSize', wd, 20);
-        DrawFormattedText(wd, ['Pulsa la barra espaciadora para continuar'], 'center', resultText5, white);
+        DrawFormattedText(wd, ['Drücken Sie die Leertaste, um fortzufahren.'], 'center', resultText5, white);
         Screen('Flip', wd);
         WaitSecs (2);
         nextScreen = 0;
@@ -119,7 +119,7 @@ while exitExp == false
         
         % LEARNING TRIALS SCREEN
         normaltrial = 0;
-        for trial = 1:trialsxblock+4
+        for trial = 1:4 %trialsxblock+4
             [keyIsDown, secs, keyCode] = KbCheck;
             if keyCode(escapeKey)
                 exitExp = true;
@@ -254,7 +254,7 @@ while exitExp == false
                 if rt > timeLimit
                     points = 0;
                     response = 6;
-                    DrawFormattedText(wd, ['¡Muy lento! Por favor, responde más rápido'], xfeedback1, yfeedback1, white);
+                    DrawFormattedText(wd, ['ZU LANGSAM! Bitte schneller reagieren!'], xfeedback1, yfeedback1, white);
                     Screen('Flip', wd);
                     WaitSecs (0.8);
                     Screen('Flip', wd);
@@ -274,7 +274,7 @@ while exitExp == false
                                 DrawFormattedText(wd, ['+' int2str(points)], xfeedback2, yfeedback2);
                             else
                                 DrawFormattedText(wd, ['+' int2str(points)], xfeedback2, yfeedback2);
-                                DrawFormattedText(wd, ['¡Puagh! A este Alien no le gustó esa galleta', red], xPuaghText, yPuaghText);
+                                DrawFormattedText(wd, ['Bäh! Dieses Alien mag diesen Keks nicht!', red], xPuaghText, yPuaghText);
                             end
                         end
                         Screen('Flip', wd);
@@ -295,7 +295,7 @@ while exitExp == false
                                 DrawFormattedText(wd, ['+' int2str(points)], xfeedback3, yfeedback3, white);
                             else
                                 DrawFormattedText(wd, ['+' int2str(points)], xfeedback3, yfeedback3, white);
-                                DrawFormattedText(wd, ['¡Ummm! A este Alien le encantó esa galleta'], xPuaghText, yPuaghText, white);
+                                DrawFormattedText(wd, ['Mmh! Dieses Alien liebt diesen Keks!'], xPuaghText, yPuaghText, white);
                             end
                         end
                         Screen('Flip', wd);
@@ -353,7 +353,7 @@ while exitExp == false
                 DATA.trial_data(totalTrial, 10) = 0;
                 tooearly = 0;
                 
-                DrawFormattedText(wd, ['¡MUY RÁPIDO! Te quedas sin diamante!'], 'center', yPos, white);
+                DrawFormattedText(wd, ['ZU SCHNELL! Sie bekommen keinen Diamanten!'], 'center', yPos, white);
                 Screen('Flip', wd);
                 WaitSecs (3);
             end
