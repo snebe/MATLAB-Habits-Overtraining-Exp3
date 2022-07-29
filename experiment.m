@@ -15,51 +15,29 @@ while exitExp == false
         
         %blockType = 1, High devaluated; =2, Med devalueated; = 3 no devaluation.
         %DATA.group = input('¿Overtr (No=1/Sí=2)? ---> ');
-        if DATA.group == 1
-            if DATA.ses == 2 ||DATA.ses == 3 
+        
+            if DATA.ses == 2 || DATA.ses == 3 
                 blockType = 3;
             else
                 if DevOrder == 1
-                    if  block == 7
+                    if  block == 4 || block == 9
                         blockType = 1;
-                    elseif  block == 6
+                    elseif  block == 5 || block == 8
                         blockType = 2;
                     else
                         blockType = 3;
                     end
                 else
-                    if block == 7
+                    if block == 4 || block == 9
                         blockType = 2;
-                    elseif block == 6
-                        blockType = 1;
-                    else
-                        blockType = 3;
-                    end
-                end
-            end
-        elseif DATA.group == 2
-            if DATA.ses == 1 ||DATA.ses == 2 
-                blockType = 3;
-            else
-                if DevOrder == 1
-                    if  block == 7
-                        blockType = 1;
-                    elseif  block == 6
-                        blockType = 2;
-                    else
-                        blockType = 3;
-                    end
-                else
-                    if block == 7
-                        blockType = 2;
-                    elseif block == 6
+                    elseif block == 5 || block == 8
                         blockType = 1;
                     else
                         blockType = 3;
                     end
                 end
             end            
-        end
+
         %SPACESHIPS SCREEN at the beginning of each block. It informs about what type of block is the next one:
         DrawFormattedText(wd, ['Schauen wir uns nun den Wert von Diamanten für die kommenden Durchgänge an.'], 'center', resultText1, white);
         Screen('Flip', wd);
@@ -174,21 +152,21 @@ while exitExp == false
                     
                     %Check for response
                     [keyIsDown, secs, keyCode] = KbCheck;
-                    if keyCode (qKey) %lef hand
+                    if keyCode (qKey) %left hand
                         hand = 1;
-                        if CurrentStim  == 1%HV1 for this cue the correct response is always q
+                        if CurrentStim  == 1 %HV1 for this cue the correct response is always q
                             points = highPoints;
                             response = 1; %"correct" response (the one leading to more points)
                             respToBeMade = 0;
-                        elseif CurrentStim == 2%HV2 for this cue the correct response is always p
+                        elseif CurrentStim == 2 %HV2 for this cue the correct response is always p
                             points = lowPoints;
                             response = 0; %"incorrect" response
                             respToBeMade = 0;
-                        elseif CurrentStim == 3%LV1 for this cue the correct response is always q
+                        elseif CurrentStim == 3 %LV1 for this cue the correct response is always q
                             points = mediumPoints;
                             response = 1;
                             respToBeMade = 0;
-                        elseif CurrentStim == 4%LV2 for this cue the correct response is always p
+                        elseif CurrentStim == 4 %LV2 for this cue the correct response is always p
                             points = lowPoints;
                             response = 0;
                             respToBeMade = 0;
@@ -203,7 +181,7 @@ while exitExp == false
                                 respToBeMade = 0;
                             end
                         end
-                    elseif keyCode(pKey)%Right
+                    elseif keyCode(pKey) %right hand
                         hand = 2;
                         if CurrentStim  == 2%HV2 for this cue the correct response is always p
                             points = highPoints;
@@ -328,7 +306,7 @@ while exitExp == false
                 totalPoints = points + totalPoints;
                 DATA.trial_data(totalTrial, 1) = totalTrial;
                 DATA.trial_data(totalTrial, 2) = block;
-                DATA.trial_data(totalTrial, 3) = blockType; %1=high devaluated
+                DATA.trial_data(totalTrial, 3) = blockType; %1=high devaluated; 2=low devalued; 3=none devalued
                 DATA.trial_data(totalTrial, 4) = CurrentStim;
                 DATA.trial_data(totalTrial, 5) = response; % 1 best response / 0 not the best r/ 3 high points selected (arrows) / 4 low select (arrows)/6 Time out
                 DATA.trial_data(totalTrial, 6) = hand; %response to the q or p
@@ -372,10 +350,6 @@ while exitExp == false
                 actualMVvalue = mediumPoints;
                 actualLVvalue = lowPoints;
             end
-            
-            
-            
-            
             
         end
         

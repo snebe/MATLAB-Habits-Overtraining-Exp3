@@ -12,20 +12,20 @@ currentfolder=pwd;
 % So data files will look like DATA_23_1_2 (first the subject, then the group
 % (time pressure) and then the session)
 
-        DATA.sub = input('Geben Sie die Probandennummer ein ---> ');
-        DATA.group = input('¿Overtr (No=1/Sí=2)? ---> ');       
-        DATA.ses = input('Geben Sie die Nummer der Session ein (1/2/3)  ---> ');
-     Session = DATA.ses;
-     if Session == 1
-        DATA.age = input('Wie alt sind Sie? (Zahlen verwenden) ---> ');
-        DATA.sex = input ('Sind Sie männlich/weiblich/anderes? ---> ', 's'); 
-        DATA.hand = input ('Sind Sie rechts- oder linkshändig? ---> ','s');
-        DATA.smoke = input ('Rauchen Sie(j/n)? ---> ','s');
-     end
+%         DATA.sub = input('Geben Sie die Probandennummer ein ---> ');
+        DATA.group = 2; %input('¿Overtr (No=1/Sí=2)? ---> ');       
+        DATA.ses = session;
+
+%      if session == 1
+%         DATA.age = input('Wie alt sind Sie? (Zahlen verwenden) ---> ');
+%         DATA.sex = input ('Sind Sie männlich/weiblich/anderes? ---> ', 's'); 
+%         DATA.hand = input ('Sind Sie rechts- oder linkshändig? ---> ','s');
+%         DATA.smoke = input ('Rauchen Sie(j/n)? ---> ','s');
+%      end
 % Check to see if subject data file already exists.
-if Session ~= 1
-    previous_session = Session - 1;
-    fileName = ['DATA_', (num2str(previous_session)), '_',(num2str(DATA.group)), '_', (num2str(DATA.sub)), '.mat'];
+if session ~= 1
+    previous_session = session - 1;
+    fileName = ['DATA_', (num2str(previous_session)), '_',(num2str(DATA.group)), '_', subj_ID, '.mat'];
     if exist(fileName, 'file') == 0
          button = questdlg('Es gibt keinen Datensatz zu diesem SUBJEKT aus der vorherigen Sitzung. Sind Sie sicher, dass Sie fortfahren möchten?','Error sujeto','Yes','No','No');
          switch button
@@ -91,7 +91,7 @@ experiment
 
  nextScreen = 0;
  WaitSecs(0.25);
-    fileNamefinal = ['DATA_', (num2str(Session)), '_',(num2str(DATA.group)), '_', (num2str(DATA.sub)), '.mat'];
+    fileNamefinal = ['DATA_', (num2str(session)), '_',(num2str(DATA.group)), '_', subj_ID, '.mat'];
 save(fileNamefinal);
 
 while nextScreen == 0

@@ -2,13 +2,13 @@
 % (column 1)The image used as cues (4 different conditions)
 % (column 2)The image used as outcome (3 different conditions)
 % (column 3)The position of the two different Aliens (green / orange) on the screen (2 different conditions)
-subjectCon = DATA.sub;
-if subjectCon > 24
-    subjectCon = rem(subjectCon, 24);
-end
-if subjectCon == 0
-    subjectCon = 24;
-end
+subjectCon = randi(24);
+% if subjectCon > 24
+%     subjectCon = rem(subjectCon, 24);
+% end
+% if subjectCon == 0
+%     subjectCon = 24;
+% end
   %Cookies, Diamonds, Aliens position%%
 counterBalancing = [1,1,1;...
       2,1,1;...
