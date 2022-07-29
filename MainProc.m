@@ -2,7 +2,7 @@
 % close all;
 % clear all;
 % sca;
-currentfolder=pwd;
+% currentfolder=pwd;
 % Each participant has a unique ID number, from 1 to N. This number will
 % set the correct stimuli etc depending on counterbalancing. Depending on
 % the session (which the program ask at the beginning), the program will be
@@ -25,7 +25,7 @@ currentfolder=pwd;
 % Check to see if subject data file already exists.
 if session ~= 1
     previous_session = session - 1;
-    fileName = ['DATA_', (num2str(previous_session)), '_',(num2str(DATA.group)), '_', subj_ID, '.mat'];
+    fileName = ['data/Luque_data_', (num2str(previous_session)), '_', subj_ID, '.mat'];
     if exist(fileName, 'file') == 0
          button = questdlg('Es gibt keinen Datensatz zu diesem SUBJEKT aus der vorherigen Sitzung. Sind Sie sicher, dass Sie fortfahren möchten?','Error sujeto','Yes','No','No');
          switch button
@@ -34,6 +34,8 @@ if session ~= 1
                 case 'No'
                    return;
          end
+    else 
+        load(fileName,'subjectCon')
     end
 end
 
@@ -69,7 +71,9 @@ TimeCue2 = 0.5;
 TimeCue3 = 0.2;
 
 %--------------------------Table for counterbalance---------------------
-counterBalancing_script
+if session == 1 
+    counterBalancing_script
+end
 %-----------------------------------------------------------------------
 
 %--------------------------Read in Stimuli------------------------------
@@ -89,14 +93,15 @@ WaitSecs(2.5);
 experiment
 %-----------------------------------------------------------------------
 
- nextScreen = 0;
- WaitSecs(0.25);
-    fileNamefinal = ['DATA_', (num2str(session)), '_',(num2str(DATA.group)), '_', subj_ID, '.mat'];
+nextScreen = 0;
+WaitSecs(0.25);
+fileNamefinal = ['data/Luque_data_', (num2str(session)), '_', subj_ID, '.mat'];
 save(fileNamefinal);
 
 while nextScreen == 0
     DrawFormattedText(wd, ['Sie sind fertig!'], 'center', resultText1, white);
-    DrawFormattedText(wd, ['Gesamtpunktzahl: ' int2str(totalPoints)],'center', resultText4, white);
+    DrawFormattedText(wd, ['Gesamtpunktzahl: ' int2str(totalPoints)],'center', resultText3, white);
+    DrawFormattedText(wd, ['Drücken Sie die Leertaste, um das Experiment zu beenden.'], 'center', resultText5, white);
     Screen('Flip', wd);    
     [keyIsDown, secs, keyCode] = KbCheck; %Check for response
     if keyCode(spacebar)

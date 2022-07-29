@@ -104,6 +104,7 @@ while exitExp == false
                 break
             end
             respToBeMade = 1;
+            hand = 0; %initialize no response, gets overwritten in case of response
             CurrentStim = 0; % Stimulus in this trial
             totalTrial = totalTrial +1;
             diamPosit_free = round(rand() + 1); %position of the diamonds if free consumption trial
@@ -131,7 +132,7 @@ while exitExp == false
                 %Start timing
                 tStart = GetSecs;
                 %Start response screen
-                while respToBeMade == 1
+                while respToBeMade == 1 && ((GetSecs - tStart) <= 4)
                     %Drawing response options
                     if CurrentStim == 5
                         if diamPosit_free == 1

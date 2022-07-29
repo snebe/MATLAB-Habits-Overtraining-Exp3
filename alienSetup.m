@@ -14,8 +14,8 @@ HideCursor();
 % Seed the random number generator. Here we use the an older way to be
 % compatible with older systems. Newer syntax would be rng('shuffle'). Look
 % at the help function of rand "help rand" for more information
-rand('seed', sum(100 * clock));
-
+% rand('seed', sum(100 * clock));
+rng('shuffle')
 
 % Set the screen number to the external secondary monitor if there is one
 % connected
