@@ -43,6 +43,7 @@ while exitExp == false
         Screen('Flip', wd);
         WaitSecs (2);
         
+        Screen('TextSize', wd, 30); %set text size for following DrawFormattedText commands
         if blockType == 1
             if counterBalancing(subjectCon,2) == 1
                 DrawFormattedText(wd, ['Der Markt hat sich verändert! BLAUE Diamanten sind jetzt 0 Punkte wert.'], 'center', resultText1, white);
@@ -82,7 +83,7 @@ while exitExp == false
             DrawFormattedText(wd, ['BLAUE, GELBE und ROTE Diamanten haben wieder ihren normalen Wert.'], 'center', resultText2, white);
             DrawFormattedText(wd, ['Und es gibt keine Störungen: Sie werden den Wert jedes verdienten Diamanten sehen.  '], 'center', resultText4, white);
         end
-        Screen('TextSize', wd, 20);
+        Screen('TextSize', wd, 30);
         DrawFormattedText(wd, ['Drücken Sie die Leertaste, um fortzufahren.'], 'center', resultText5, white);
         Screen('Flip', wd);
         WaitSecs (2);
@@ -233,6 +234,7 @@ while exitExp == false
                 if rt > timeLimit
                     points = 0;
                     response = 6;
+                    Screen('TextSize', wd, 30);
                     DrawFormattedText(wd, ['ZU LANGSAM! Bitte schneller reagieren!'], xfeedback1, yfeedback1, white);
                     Screen('Flip', wd);
                     WaitSecs (0.8);
@@ -244,6 +246,7 @@ while exitExp == false
                         Screen('Flip', wd);
                         WaitSecs (0.8);
                         numLV = numLV + 1;
+                        Screen('TextSize', wd, 30);
                         if blockType == 2 %blockType = 1, High devaluated; =2, Med devalueated; = 3 no devaluation
                             DrawFormattedText(wd, '??', xfeedback2, yfeedback2);
                         elseif blockType == 1
@@ -264,6 +267,7 @@ while exitExp == false
                         Screen('Flip', wd);
                         WaitSecs (0.8);
                         numHV = numHV + 1;
+                        Screen('TextSize', wd, 30);
                         if blockType == 1%blockType = 1, High devaluated; =2, Med devalueated; = 3 no devaluation
                             points = 0;
                             DrawFormattedText(wd, '??', xfeedback2, yfeedback2);
@@ -296,6 +300,7 @@ while exitExp == false
                         WaitSecs (1.5);
                         
                     elseif points == 0  % error trial
+                        Screen('TextSize', wd, 30);
                         DrawFormattedText(wd, 'ERROR', xfeedback4, yfeedback4, red);
                         Screen('Flip', wd);
                         WaitSecs (0.8);
@@ -332,6 +337,7 @@ while exitExp == false
                 DATA.trial_data(totalTrial, 10) = 0;
                 tooearly = 0;
                 
+                Screen('TextSize', wd, 30);
                 DrawFormattedText(wd, ['ZU SCHNELL! Sie bekommen keinen Diamanten!'], 'center', yPos, white);
                 Screen('Flip', wd);
                 WaitSecs (3);

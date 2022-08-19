@@ -15,6 +15,7 @@ HideCursor();
 % compatible with older systems. Newer syntax would be rng('shuffle'). Look
 % at the help function of rand "help rand" for more information
 % rand('seed', sum(100 * clock));
+rng('default') %resetting rng to start-up mode in case some legacy rng command has been used before, which would make the experiment crash on the foloowing rng command
 rng('shuffle')
 
 % Set the screen number to the external secondary monitor if there is one

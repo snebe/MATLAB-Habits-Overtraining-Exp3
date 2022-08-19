@@ -23,7 +23,7 @@
 %         DATA.smoke = input ('Rauchen Sie(j/n)? ---> ','s');
 %      end
 % Check to see if subject data file already exists.
-if session ~= 1
+if session > 2
     previous_session = session - 1;
     fileName = ['data/Luque_data_', (num2str(previous_session)), '_', subj_ID, '.mat'];
     if exist(fileName, 'file') == 0
@@ -71,7 +71,7 @@ TimeCue2 = 0.5;
 TimeCue3 = 0.2;
 
 %--------------------------Table for counterbalance---------------------
-if session == 1 
+if session == 2 
     counterBalancing_script
 end
 %-----------------------------------------------------------------------
