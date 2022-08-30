@@ -25,7 +25,12 @@
 % Check to see if subject data file already exists.
 if session > 2
     previous_session = session - 1;
-    fileName = ['data/Luque_data_', (num2str(previous_session)), '_', subj_ID, '.mat'];
+    if debug==0 
+        fileName = ['N:\client_write\Stephan\data\Luque_data_', (num2str(previous_session)), '_', subj_ID, '.mat'];
+    else
+        fileName = ['data\Luque_data_', (num2str(previous_session)), '_', subj_ID, '.mat'];
+    end
+
     if exist(fileName, 'file') == 0
          button = questdlg('Es gibt keinen Datensatz zu diesem SUBJEKT aus der vorherigen Sitzung. Sind Sie sicher, dass Sie fortfahren möchten?','Error sujeto','Yes','No','No');
          switch button
@@ -35,7 +40,7 @@ if session > 2
                    return;
          end
     else 
-        load(fileName,'subjectCon')
+        load(fileName,'subjectCon','counterBalancing')
     end
 end
 
@@ -70,6 +75,8 @@ TimeCue1 = 0.8;
 TimeCue2 = 0.5;
 TimeCue3 = 0.2;
 
+KbQueueRelease %stops previous use of KbQueue
+
 %--------------------------Table for counterbalance---------------------
 if session == 2 
     counterBalancing_script
@@ -95,12 +102,26 @@ experiment
 
 nextScreen = 0;
 WaitSecs(0.25);
-fileNamefinal = ['data/Luque_data_', (num2str(session)), '_', subj_ID, '.mat'];
-save(fileNamefinal);
+
+payout_Luque=randperm(length(DATA.trial_data),3)';
+if ~isnan(DATA.trial_data(payout_Luque(1,1))); payout_Luque(1,2)=DATA.trial_data(payout_Luque(1,1),8);
+else payout_Luque(1,2)=0; end
+if ~isnan(DATA.trial_data(payout_Luque(2,1))); payout_Luque(2,2)=DATA.trial_data(payout_Luque(2,1),8);
+else payout_Luque(2,2)=0; end
+if ~isnan(DATA.trial_data(payout_Luque(3,1))); payout_Luque(3,2)=DATA.trial_data(payout_Luque(3,1),8);
+else payout_Luque(3,2)=0; end
+a_payout_Luque=sum(payout_Luque(:,2))/100;
+
+win_msg1=sprintf('Es wurden zufällig die Durchgänge %d, %d und %d ausgewählt.', payout_Luque(1,1),payout_Luque(2,1),payout_Luque(3,1));
+win_msg2=sprintf('In diesen Durchgängen gewannen Sie %d, %d und %d Punkte.', payout_Luque(1,2),payout_Luque(2,2),payout_Luque(3,2));
+win_msg3=sprintf('Das ergibt insgesamt einen zusätzlichen Gewinn von CHF %.2f.', a_payout_Luque);
 
 while nextScreen == 0
+
     DrawFormattedText(wd, ['Sie sind fertig!'], 'center', resultText1, white);
-    DrawFormattedText(wd, ['Gesamtpunktzahl: ' int2str(totalPoints)],'center', resultText3, white);
+    DrawFormattedText(wd, win_msg1,'center', resultText2, white);
+    DrawFormattedText(wd, win_msg2,'center', resultText3, white);
+    DrawFormattedText(wd, win_msg3,'center', resultText4, white);
     DrawFormattedText(wd, ['Drücken Sie die Leertaste, um das Experiment zu beenden.'], 'center', resultText5, white);
     Screen('Flip', wd);    
     [keyIsDown, secs, keyCode] = KbCheck; %Check for response
@@ -109,5 +130,13 @@ while nextScreen == 0
     end  
 end
 
+if debug==0 
+    fileNamefinal = ['N:\client_write\Stephan\data\Luque_data_', (num2str(session)), '_', subj_ID, '.mat'];
+else
+    fileNamefinal = ['data\Luque_data_', (num2str(session)), '_', subj_ID, '.mat'];
+end
+save(fileNamefinal);
+
+
 WaitSecs(1);
-    Screen('CloseAll')
+Screen('CloseAll')

@@ -46,13 +46,13 @@ end
 
 Screen('DrawTexture', wd, centerStim, [], rect.stim{5} ); %Draw the image
 Screen('Flip', wd); 
-if block == 1
+% if block == 1
     thisTrialCueTime = TimeCue1;
-elseif block == 2
-    thisTrialCueTime = TimeCue2; 
-else
-    thisTrialCueTime = TimeCue3;
-end
+% elseif block == 2
+%     thisTrialCueTime = TimeCue2; 
+% else
+%     thisTrialCueTime = TimeCue3;
+% end
 tic
 
 while toc < thisTrialCueTime

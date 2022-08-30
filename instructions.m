@@ -17,7 +17,7 @@ n=1;
 Screen('DrawTexture', wd, insMatrix(n),[], rect.stim{6});
 Screen('Flip', wd);
 WaitSecs(0.2);KbWait;
-if DATA.ses == 1 || DATA.ses == 4
+if DATA.ses == 2 || DATA.ses == 5
     while exitInstr == false
         [keyIsDown, secs, keyCode] = KbCheck;
         if keyCode(exitKey)

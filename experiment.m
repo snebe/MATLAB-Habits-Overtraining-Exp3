@@ -16,7 +16,7 @@ while exitExp == false
         %blockType = 1, High devaluated; =2, Med devalueated; = 3 no devaluation.
         %DATA.group = input('¿Overtr (No=1/Sí=2)? ---> ');
         
-            if DATA.ses == 2 || DATA.ses == 3 
+            if DATA.ses == 3 || DATA.ses == 4 
                 blockType = 3;
             else
                 if DevOrder == 1
@@ -43,7 +43,7 @@ while exitExp == false
         Screen('Flip', wd);
         WaitSecs (2);
         
-        Screen('TextSize', wd, 30); %set text size for following DrawFormattedText commands
+        Screen('TextSize', wd, 25); %set text size for following DrawFormattedText commands
         if blockType == 1
             if counterBalancing(subjectCon,2) == 1
                 DrawFormattedText(wd, ['Der Markt hat sich verändert! BLAUE Diamanten sind jetzt 0 Punkte wert.'], 'center', resultText1, white);
@@ -80,10 +80,10 @@ while exitExp == false
             end
         elseif blockType == 3
             DrawFormattedText(wd, ['Der Markt ist normalisiert!'], 'center', resultText1, white);
-            DrawFormattedText(wd, ['BLAUE, GELBE und ROTE Diamanten haben wieder ihren normalen Wert.'], 'center', resultText2, white);
+            DrawFormattedText(wd, ['BLAUE, GELBE und ROTE Diamanten haben (wieder) ihren normalen Wert.'], 'center', resultText2, white);
             DrawFormattedText(wd, ['Und es gibt keine Störungen: Sie werden den Wert jedes verdienten Diamanten sehen.  '], 'center', resultText4, white);
         end
-        Screen('TextSize', wd, 30);
+        Screen('TextSize', wd, 25);
         DrawFormattedText(wd, ['Drücken Sie die Leertaste, um fortzufahren.'], 'center', resultText5, white);
         Screen('Flip', wd);
         WaitSecs (2);
@@ -98,7 +98,7 @@ while exitExp == false
         
         % LEARNING TRIALS SCREEN
         normaltrial = 0;
-        for trial = 1:4 %trialsxblock+4
+        for trial = 1:trialsxblock+4
             [keyIsDown, secs, keyCode] = KbCheck;
             if keyCode(escapeKey)
                 exitExp = true;
@@ -256,7 +256,7 @@ while exitExp == false
                                 DrawFormattedText(wd, ['+' int2str(points)], xfeedback2, yfeedback2);
                             else
                                 DrawFormattedText(wd, ['+' int2str(points)], xfeedback2, yfeedback2);
-                                DrawFormattedText(wd, ['Bäh! Dieses Alien mag diesen Keks nicht!', red], xPuaghText, yPuaghText);
+                                DrawFormattedText(wd, 'Bäh! Dieses Alien mag diesen Keks nicht!', xPuaghText, yPuaghText);
                             end
                         end
                         Screen('Flip', wd);
@@ -278,7 +278,7 @@ while exitExp == false
                                 DrawFormattedText(wd, ['+' int2str(points)], xfeedback3, yfeedback3, white);
                             else
                                 DrawFormattedText(wd, ['+' int2str(points)], xfeedback3, yfeedback3, white);
-                                DrawFormattedText(wd, ['Mmh! Dieses Alien liebt diesen Keks!'], xPuaghText, yPuaghText, white);
+                                DrawFormattedText(wd, 'Mmh! Dieses Alien liebt diesen Keks!', xPuaghText, yPuaghText, white);
                             end
                         end
                         Screen('Flip', wd);
@@ -338,7 +338,7 @@ while exitExp == false
                 tooearly = 0;
                 
                 Screen('TextSize', wd, 30);
-                DrawFormattedText(wd, ['ZU SCHNELL! Sie bekommen keinen Diamanten!'], 'center', yPos, white);
+                DrawFormattedText(wd, 'ZU SCHNELL! Sie bekommen keinen Diamanten!', 'center', yPos, white);
                 Screen('Flip', wd);
                 WaitSecs (3);
             end
